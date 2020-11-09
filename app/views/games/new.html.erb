@@ -1,0 +1,13 @@
+
+<ul>
+  <% @selection.each do |s| %>
+    <li><%= s.capitalize %></li>
+  <% end %>
+</ul> 
+<p>What is the longest word you can find?</p>
+<form action="/score" method="post">
+  <input type="text" name="word" >
+  <input type="submit" value="Play" >
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :selection, @selection %>
+</form>
